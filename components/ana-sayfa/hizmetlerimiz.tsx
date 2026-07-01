@@ -5,31 +5,31 @@ import { useState } from "react";
 const servicesList = [
   { 
     id: "01", 
-    title: "AI Strategy & Mapping", 
-    desc: "Identify high-ROI use cases and define a realistic, measurable AI roadmap.", 
-    tags: ["Stakeholder discovery", "Value model & KPI definition", "Data readiness"],
-    image: "/assets/images/section/service-1.jpg" // 1. hizmetin görseli
+    title: "Web Hizmetleri", 
+    desc: "Markanızın dijital vitrinini modern, hızlı ve kullanıcı dostu web siteleriyle güçlendiriyoruz. Kurumsal web sitelerinden landing page tasarımlarına, mobil uyumlu arayüzlerden yönetilebilir altyapılara kadar tüm süreci markanıza özel şekilde planlıyoruz.", 
+    tags: ["E-Ticaret","Kurumsal Web Tasarım", "Mobil Uyumlu Tasarım", "UI&UX","SEO Uyumlu Altyapı"],
+    image: "/webhizmetleri.png" // 1. hizmetin görseli
   },
   { 
     id: "02", 
-    title: "AI UX & Product Design", 
-    desc: "Human-centered flows, prompts, and interfaces that build trust and adoption.", 
-    tags: ["Prototype flows", "Prompt UX patterns", "Usability testing"],
-    image: "/assets/images/section/service-2.jpg" // 2. hizmetin görseli
+    title: "Sosyal Medya Yönetimi", 
+    desc: "Markanızın sosyal medyada düzenli, profesyonel ve güven veren bir görünüm kazanması için içerik planlama, görsel tasarım, metin yazımı ve paylaşım sürecini stratejik şekilde yönetiyoruz. Sadece paylaşım yapmakla kalmıyor, markanızın dijital dilini oluşturuyoruz.", 
+    tags: ["İçerik Planlama", "Post & Story Tasarımı", "Profil Düzenleme","Etkileşim Yönetimi","Aylık Raporlama"],
+    image: "/sosyalmedyayonetimi.png" // 2. hizmetin görseli
   },
   { 
     id: "03", 
-    title: "LLM / Agent Development", 
-    desc: "Domain-specific copilots and agents that plan, execute, and report.", 
-    tags: ["Multi-step planning", "Function calling & toolchains", "Audit trails"],
-    image: "/assets/images/section/service-3.jpg" // 3. hizmetin görseli
+    title: "Meta Reklam Yönetimi", 
+    desc: "Instagram ve Facebook reklamlarınızı doğru hedef kitle, doğru kreatif ve doğru bütçe yönetimiyle profesyonel şekilde hazırlıyoruz. Amacımız yalnızca görünürlük sağlamak değil; markanız için mesaj, trafik, satış veya potansiyel müşteri odaklı sonuçlar üretmek.", 
+    tags: ["Instagram Reklamları", "Facebook Reklamları", "Hedef Kitle Analizi","Bütçe Optimizasyonu","Performans Takibi"],
+    image: "/metareklamyonetimi2.png" // 3. hizmetin görseli
   },
   { 
     id: "04", 
-    title: "Data Engineering & Pipelines", 
-    desc: "Reliable data flows from ingestion to features, built for scale and cost control.", 
-    tags: ["Data cleaning & chunking", "Hybrid search", "Freshness, citations, and re-ranking"],
-    image: "/assets/images/section/service-4.jpg" // 4. hizmetin görseli (Görseldeki drone resmi buraya gelecek)
+    title: "Grafik Tasarım", 
+    desc: "Markanızın görsel kimliğini güçlendiren, dikkat çekici ve profesyonel tasarımlar hazırlıyoruz. Sosyal medya görsellerinden reklam kreatiflerine, kurumsal kimlik çalışmalarından kampanya tasarımlarına kadar markanızın her temas noktasında güçlü görünmesini sağlıyoruz.", 
+    tags: ["Sosyal Medya Tasarımları", "Logo Tasarımı", "Kurumsal Kimlik","Reklam Kreatifleri","Kampanya Tasarımları"],
+    image: "/grafiktasarim.png" // 4. hizmetin görseli
   },
 ];
 
@@ -48,18 +48,18 @@ export default function Services() {
         <div className="w-full lg:w-5/12 flex flex-col">
           {/* Rozet */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-gray-100 mb-8 w-max">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#00BFFF]"></div>
-            <span className="text-sm font-bold text-[#00BFFF] tracking-wide">Services</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#093efe]"></div>
+            <span className="text-sm font-bold text-[#093efe] tracking-wide">Hizmetlerimiz</span>
           </div>
           
           {/* Başlık */}
           <h2 className="text-5xl md:text-6xl lg:text-[4rem] font-bold text-gray-900 leading-[1.1] mb-8 tracking-tight">
-            End-to-End <br /> AI Services
+            Uçtan Uca <br /> Dijital Çözümler
           </h2>
           
           {/* Açıklama Metni */}
           <p className="text-lg font-medium text-gray-600 leading-relaxed mb-12 max-w-md">
-            We turn ambiguous AI ideas into production features your users trust—combining strategy, design, engineering, and rigorous evaluation.
+            Markanızın dijitalde daha profesyonel, güvenilir ve görünür olması için web, sosyal medya, reklam ve tasarım süreçlerini tek çatı altında yönetiyoruz.
           </p>
 
           {/* Dinamik Görsel Alanı (Seçilen hizmete göre değişir) */}
@@ -84,8 +84,6 @@ export default function Services() {
             const isActive = activeTab === service.id;
 
             return (
-              // DÜZELTME 1: div yerine button kullanıldı
-              // DÜZELTME 2: w-full, text-left ve touch-manipulation eklendi
               <button 
                 key={service.id} 
                 type="button"

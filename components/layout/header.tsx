@@ -68,7 +68,7 @@ export default function Header() {
           className="relative z-10 flex shrink-0 items-center gap-2 pl-4"
         >
           <img
-            src="/assets/images/logo/logo-dark.svg"
+            src="/caeldigitallogok.png"
             alt="Cael Digital Logo"
             className="h-7 md:h-8"
           />
@@ -85,8 +85,8 @@ export default function Header() {
                     href={item.href}
                     className={`relative flex items-center gap-1 font-semibold transition-colors ${
                       active
-                        ? "text-[#00BFFF] after:absolute after:-bottom-[2px] after:left-0 after:h-[2px] after:w-full after:bg-[#00BFFF] after:content-['']"
-                        : "text-gray-900 hover:text-[#00BFFF]"
+                        ? "text-[#093efe] after:absolute after:-bottom-[2px] after:left-0 after:h-[2px] after:w-full after:bg-[#093efe] after:content-['']"
+                        : "text-gray-900 hover:text-[#093efe]"
                     }`}
                   >
                     {item.label}
@@ -133,8 +133,8 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`border-b border-gray-100 pb-2 text-lg font-semibold transition-colors last:border-b-0 ${
                     active
-                      ? "text-[#00BFFF]"
-                      : "text-gray-700 hover:text-[#00BFFF]"
+                      ? "text-[#093efe]"
+                      : "text-gray-700 hover:text-[#093efe]"
                   }`}
                 >
                   {item.label}

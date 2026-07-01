@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import {
-  FaArrowUp,
   FaEnvelope,
+  FaArrowUp,
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
-  FaXTwitter,
 } from "react-icons/fa6";
 
 const footerLinks = [
@@ -18,26 +16,17 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  {
-    label: "Twitter / X",
-    href: "https://x.com",
-    icon: FaXTwitter,
+    {
+    label: "Instagram",
+    href: "https://instagram.com/caeldigitalcom",
+    icon: FaInstagram,
   },
   {
     label: "Facebook",
     href: "https://facebook.com",
     icon: FaFacebookF,
   },
-  {
-    label: "Instagram",
-    href: "https://instagram.com",
-    icon: FaInstagram,
-  },
-  {
-    label: "Linkedin",
-    href: "https://linkedin.com",
-    icon: FaLinkedinIn,
-  },
+
 ];
 
 export default function Footer() {
@@ -48,14 +37,18 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#eeeeef] px-5 pb-8 pt-24 text-[#08080c] sm:px-8 lg:px-12">
       <div className="pointer-events-none absolute inset-x-0 top-0 flex justify-center overflow-hidden">
-        <span className="select-none whitespace-nowrap text-[23vw] font-black leading-none tracking-normal text-zinc-200/60">
-          Cael
+        <span className="select-none whitespace-nowrap text-[23vw] font-black leading-none tracking-normal text-blue-500 text-zinc-200/60">
+          CAEL
         </span>
       </div>
 
       <section className="relative z-10 mx-auto flex max-w-[1400px] flex-col items-center text-center">
-        <div className="flex h-[96px] w-[96px] items-center justify-center rounded-[18px] bg-[#242424] text-white shadow-[0_5px_0_rgba(0,0,0,0.35),0_20px_32px_rgba(0,0,0,0.28)]">
-          <FaEnvelope size={40} />
+        <div className="flex h-[72px] w-[150px] items-center justify-center rounded-[22px] border border-white/80 bg-white px-6 shadow-[0_6px_0_rgba(0,0,0,0.04),0_18px_28px_rgba(0,0,0,0.10)]">
+          <img
+            src="/caeldigitallogok.png"
+            alt="Cael Digital Logo"
+            className="h-10 w-auto object-contain"
+          />
         </div>
 
         <h2 className="mt-10 max-w-xl text-[30px] font-semibold leading-tight tracking-normal sm:text-[34px]">
@@ -102,26 +95,9 @@ export default function Footer() {
           ))}
         </nav>
 
-        <p>© 2026 Cael Digital. Tüm hakları saklıdır.</p>
+        <p className="text-center md:text-center lg:text-center">© 2026 Cael Digital. Tüm hakları saklıdır.</p>
 
-        <button
-          type="button"
-          onClick={scrollToTop}
-          className="inline-flex items-center gap-4 text-[#08080c] transition hover:text-[#00BFFF]"
-        >
-          Başa dön
-          <FaArrowUp size={18} />
-        </button>
       </div>
-
-      <button
-        type="button"
-        onClick={scrollToTop}
-        aria-label="Başa dön"
-        className="fixed bottom-7 right-7 z-50 flex h-[54px] w-[54px] items-center justify-center rounded-full border border-[#00BFFF] bg-black text-white shadow-[0_10px_24px_rgba(0,0,0,0.25)] transition hover:-translate-y-1 hover:bg-[#00BFFF]"
-      >
-        <FaArrowUp size={24} />
-      </button>
     </footer>
   );
 }

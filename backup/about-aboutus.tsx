@@ -1,6 +1,6 @@
 "use client";
 
-export default function aboutus() {
+export default function Hakkimizda() {
   return (
     <section id="about" className="py-20 md:py-32 bg-[#f8f9fa] overflow-hidden">
       <div className="container mx-auto px-4 max-w-[1200px]">
@@ -20,36 +20,32 @@ export default function aboutus() {
         {/* Ana Grid Yapısı */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           
+          {/* Sol Kutu: Koyu Tema Dünya Kartı */}
           <div className="w-full lg:w-[55%] bg-gradient-to-b from-[#222222] to-[#0a0a0a] rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl min-h-[400px] md:min-h-[500px]">
-            <img
-             src="/dunya.png"
-             alt="Dünya görseli"
-            className="absolute bottom-0 left-1/2 z-0 w-[115%] max-w-none -translate-x-1/2 object-contain pointer-events-none"
-             />
-
-           <div className="relative z-20 flex flex-col items-center">
+            {/* İçerik (Z-index ile görselin üstünde tutuyoruz) */}
+            <div className="relative z-10 flex flex-col items-center">
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#093efe] animate-pulse"></div>
-               <span className="text-sm font-medium text-gray-200">
-                  Yeni Nesil Dijital Çözümler
-               </span>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#00BFFF] animate-pulse"></div>
+                <span className="text-sm font-medium text-gray-200">Available for worldwide project</span>
               </div>
-
+              
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-10 tracking-tight">
-               Dijital dünyada <span className="text-[#093efe]">markanızı daha güçlü konumlandırıyoruz.</span>
+                Based in <span className="text-[#00BFFF]">Montréal, Canada</span>
               </h3>
-
-            <a
-             href="/hakkimizda"
-              className="relative z-[999] inline-flex min-w-[150px] items-center justify-center rounded-full border border-[#444] bg-[#1f1f1f] px-8 py-4 text-base font-semibold text-white shadow-[0_8px_20px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#2b2b2b]"
-            >
-              <span className="relative z-[1000] block whitespace-nowrap text-white">
-               Bizi Tanıyın
-              </span>
-            </a>
-           </div>
+              
+              <button className="px-8 py-4 bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a] border border-[#444] rounded-full text-white font-semibold shadow-[0_8px_20px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300">
+                Start a Project
+              </button>
             </div>
 
+            {/* Dünya Görseli */}
+            {/* Görselin tam yolunu ayarlamayı unutma! Orijinal HTML'de earth.png şeklindeydi */}
+            <img 
+              src="/assets/images/item/earth.png" 
+              alt="World Globe" 
+              className="absolute -bottom-16 md:-bottom-24 left-1/2 -translate-x-1/2 w-[130%] md:w-[110%] max-w-none opacity-60 pointer-events-none" 
+            />
+          </div>
 
           {/* Sağ Sütun: Alt Alta İki Açık Renk Kart */}
           <div className="w-full lg:w-[45%] flex flex-col gap-6 lg:gap-8">
