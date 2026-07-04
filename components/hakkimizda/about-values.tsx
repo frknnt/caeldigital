@@ -3,25 +3,27 @@ import { Rocket, Lightbulb, Handshake, Sparkles } from 'lucide-react';
 
 export default function FeaturesSection() {
   const features = [
-    {
-      title: "Innovation",
-      icon: <Rocket className="text-white w-8 h-8" strokeWidth={1.5} />,
-      description: "Innovation drives everything we do. We leverage emerging technologies, challenge conventions, and explore new possibilities to create solutions. Through insight, experimentation, and strategy, we craft transformative experiences that fuel growth, redefine standards, and create meaningful impact—ensuring every project shapes the future with purpose."
-    },
-    {
-      title: "Creativity",
-      icon: <Lightbulb className="text-white w-8 h-8" strokeWidth={1.5} />,
-      description: "Creativity is the core of our agency. We transform ideas into compelling experiences that inspire, engage, and resonate. By blending imagination with strategy, we craft innovative solutions that stand out in crowded markets. Every project is an opportunity to explore new perspectives, push boundaries, and deliver work that is both original and impactful, leaving a lasting impression."
-    },
-    {
-      title: "Collaboration",
+
+        {
+      title: "Veriyle Büyüme",
       icon: <Handshake className="text-white w-8 h-8" strokeWidth={1.5} />,
-      description: "At the heart of our work lies collaboration—bringing together diverse talents, perspectives, and expertise to achieve results. We foster open communication, encourage co-creation, and build strong partnerships with clients, ensuring every project reflects shared vision and purpose. By working together, we transform ideas into impactful solutions that drive innovation and lasting value."
+      description: "Tahminlerle değil, analizlerle ilerliyoruz. Sosyal medya performansı, web sitesi davranışları ve reklam sonuçlarını takip ederek markalar için daha doğru, daha etkili ve sürdürülebilir dijital büyüme stratejileri oluşturuyoruz."
     },
     {
-      title: "Excellence",
+      title: "Marka Hikâyesi",
+      icon: <Lightbulb className="text-white w-8 h-8" strokeWidth={1.5} />,
+      description: "Her markanın dijitalde anlatılması gereken güçlü bir hikâyesi olduğuna inanıyoruz. Bu hikâyeyi doğru dil, yaratıcı görseller ve etkili içeriklerle görünür hale getirerek markaların akılda kalmasını sağlıyoruz."
+    },
+        {
+      title: "Stratejik Görünürlük",
+      icon: <Rocket className="text-white w-8 h-8" strokeWidth={1.5} />,
+      description: "Markaların dijitalde sadece var olmasını değil, doğru kitle tarafından fark edilmesini hedefliyoruz. Web sitesi, sosyal medya ve reklam stratejilerini tek bir bütün olarak ele alarak markanın dijital görünürlüğünü güçlendiriyoruz."
+    },
+
+    {
+      title: "Dönüşüm Odaklı Tasarım",
       icon: <Sparkles className="text-white w-8 h-8" strokeWidth={1.5} />,
-      description: "Excellence drives everything we do. From concept to execution, we pursue the highest standards in design, strategy, and delivery. Every detail matters, every decision is intentional, and every outcome reflects our commitment to quality. By continually refining our skills and processes, we ensure each project not only meets expectations but sets new benchmarks in creativity and performance."
+      description: "Güzel görünen ama sonuç üretmeyen tasarımlar yerine, kullanıcıyı aksiyona yönlendiren dijital deneyimler tasarlıyoruz. Her sayfa, her içerik ve her görsel; güven, ilgi ve dönüşüm oluşturacak şekilde planlanır."
     }
   ];
 
