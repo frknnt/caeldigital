@@ -1,7 +1,6 @@
 // app/about/page.tsx
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import ContactHero from "@/components/iletisim/contact-hero";
 import ContactDetails from "@/components/iletisim/contact-details";
 import Contact from "@/components/iletisim/contact-form";
 
@@ -11,8 +10,7 @@ export default function ContactPage() {
       <Header />
       
       <main>
-        {/* 1. Sayfanın en üstündeki devasa başlık alanı */}
-        <ContactHero />
+        
         
         {/* 2. DÜZELTME 2: Az önce oluşturduğumuz Dünya Haritası ve Vizyon/Misyon bileşeni */}
         <ContactDetails />
