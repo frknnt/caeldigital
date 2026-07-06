@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
 
         <h2 className="mt-10 max-w-xl text-[30px] font-semibold leading-tight tracking-normal sm:text-[34px]">
-          Cael Digital ile sosyal medyada bağlantıda kal
+          Cael Digital ile sosyal medyada bağlantıda kalın.
         </h2>
 
         <p className="mt-5 text-[18px] font-medium text-zinc-700">
