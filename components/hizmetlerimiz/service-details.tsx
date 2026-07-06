@@ -3,35 +3,35 @@
 import { useState } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-const servicesData = [
-  {
-    id: "01",
-    title: "AI Strategy & Mapping",
-    description: "Identify high-ROI use cases and define a realistic, measurable AI roadmap. Our AI Strategy & Mapping process aligns technology with business goals through stakeholder discovery, KPI modeling, and data readiness assessment to ensure sustainable growth and measurable transformation outcomes.",
-    tags: ["Stakeholder discovery", "Value model & KPI definition", "Data readiness assessment"],
-    image: "/assets/images/services/strategy.jpg" // Görsel yolunu kendi projene göre ayarla
+const servicesList = [
+  { 
+    id: "01", 
+    title: "Web Hizmetleri", 
+    description: "Markanızın dijital vitrinini modern, hızlı ve kullanıcı dostu web siteleriyle güçlendiriyoruz. Kurumsal web sitelerinden landing page tasarımlarına, mobil uyumlu arayüzlerden yönetilebilir altyapılara kadar tüm süreci markanıza özel şekilde planlıyoruz.", 
+    tag: ["E-Ticaret","Kurumsal Web Tasarım", "Mobil Uyumlu Tasarım", "UI&UX","SEO Uyumlu Altyapı"],
+    image: "/webhizmetleri.png" // 1. hizmetin görseli
   },
-  {
-    id: "02",
-    title: "AI UX & Product Design",
-    description: "Transform complex AI capabilities into intuitive, user-centric experiences. We design interfaces that build trust, reduce friction, and make AI interactions feel natural and accessible for every user.",
-    tags: ["User research", "Interface design", "Prototyping"],
-    image: "/assets/images/services/design.jpg"
+  { 
+    id: "02", 
+    title: "Sosyal Medya Yönetimi", 
+    description: "Markanızın sosyal medyada düzenli, profesyonel ve güven veren bir görünüm kazanması için içerik planlama, görsel tasarım, metin yazımı ve paylaşım sürecini stratejik şekilde yönetiyoruz. Sadece paylaşım yapmakla kalmıyor, markanızın dijital dilini oluşturuyoruz.", 
+    tag: ["İçerik Planlama", "Post & Story Tasarımı", "Profil Düzenleme","Etkileşim Yönetimi","Aylık Raporlama"],
+    image: "/sosyalmedyayonetimi.png" // 2. hizmetin görseli
   },
-  {
-    id: "03",
-    title: "LLM / Agent Development",
-    description: "Build custom large language models and autonomous agents tailored to your specific business workflows. We develop intelligent systems capable of complex reasoning, task execution, and seamless integration.",
-    tags: ["Custom LLMs", "Autonomous agents", "Prompt engineering"],
-    image: "/assets/images/services/development.jpg"
+  { 
+    id: "03", 
+    title: "Meta Reklam Yönetimi", 
+    description: "Instagram ve Facebook reklamlarınızı doğru hedef kitle, doğru kreatif ve doğru bütçe yönetimiyle profesyonel şekilde hazırlıyoruz. Amacımız yalnızca görünürlük sağlamak değil; markanız için mesaj, trafik, satış veya potansiyel müşteri odaklı sonuçlar üretmek.", 
+    tag: ["Instagram Reklamları", "Facebook Reklamları", "Hedef Kitle Analizi","Bütçe Optimizasyonu","Performans Takibi"],
+    image: "/metareklamyonetimi2.png" // 3. hizmetin görseli
   },
-  {
-    id: "04",
-    title: "Data Engineering & Pipelines",
-    description: "Establish robust, scalable data infrastructure to power your AI initiatives. We design clean, automated pipelines that ensure your models are trained on high-quality, real-time data.",
-    tags: ["Data architecture", "ETL processes", "Database optimization"],
-    image: "/assets/images/services/data.jpg"
-  }
+  { 
+    id: "04", 
+    title: "Grafik Tasarım", 
+    description: "Markanızın görsel kimliğini güçlendiren, dikkat çekici ve profesyonel tasarımlar hazırlıyoruz. Sosyal medya görsellerinden reklam kreatiflerine, kurumsal kimlik çalışmalarından kampanya tasarımlarına kadar markanızın her temas noktasında güçlü görünmesini sağlıyoruz.", 
+    tag: ["Sosyal Medya Tasarımları", "Logo Tasarımı", "Kurumsal Kimlik","Reklam Kreatifleri","Kampanya Tasarımları"],
+    image: "/grafiktasarim.png" // 4. hizmetin görseli
+  },
 ];
 
 export default function ServicesAccordion() {
@@ -49,22 +49,22 @@ export default function ServicesAccordion() {
         {/* Üst Kısım: Rozet, Başlık ve Alt Metin */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-gray-100 mb-6">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#00BFFF]"></div>
-            <span className="text-[0.85rem] font-bold text-[#00BFFF] tracking-wide">Services</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-[#093efe]"></div>
+            <span className="text-[0.85rem] font-bold text-[#093efe] tracking-wide">Hizmetlerimiz</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-[#222d36] mb-6">
-            End-to-End AI Services
+            Uçtan Uca Dijital Çözümler
           </h2>
           
           <p className="text-[1.05rem] text-[#666666] font-light max-w-2xl leading-[1.8]">
-            We turn ambiguous AI ideas into production features your users trust—combining strategy, design, engineering, and rigorous evaluation.
+            Web tasarım, reklam yönetimi ve sosyal medya süreçlerini tek bir strateji altında birleştirerek markanızın dijitalde daha güçlü, görünür ve profesyonel bir konuma ulaşmasını sağlıyoruz.
           </p>
         </div>
 
         {/* Akordeon Listesi */}
         <div className="flex flex-col gap-5">
-          {servicesData.map((service, index) => {
+          {servicesList.map((service, index) => {
             const isOpen = openIndex === index;
 
             return (
@@ -126,7 +126,7 @@ export default function ServicesAccordion() {
                         </p>
                         
                         <div className="flex flex-wrap gap-3">
-                          {service.tags.map((tag, idx) => (
+                          {service.tag.map((tag, idx) => (
                             <span 
                               key={idx} 
                               className="px-4 py-2 rounded-full bg-white/10 border border-white/5 text-gray-300 text-sm font-medium"
