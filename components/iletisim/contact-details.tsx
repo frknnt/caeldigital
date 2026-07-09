@@ -3,25 +3,25 @@ import { Headphones, Mail, MapPin } from "lucide-react";
 const contactItems = [
   {
     title: "E-posta adresi",
-    value: "hello@caeldigital.com",
+    value: "destek@caeldigital.com",
     icon: Mail,
   },
   {
     title: "Telefon numarası",
-    value: "+90 555 555 55 55",
+    value: "+90 544 633 43 57",
     icon: Headphones,
   },
   {
     title: "Konumumuz",
-    value: "Türkiye, İstanbul",
+    value: "Türkiye, İzmir",
     icon: MapPin,
   },
 ];
 
 export default function ContactDetails() {
   return (
-    <section className="px-5 py-12 sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-[1180px] gap-5 md:grid-cols-3">
+    <section className="px-5 py-12 sm:px-8 lg:px-12 ">
+      <div className="mx-auto grid max-w-[1180px] gap-5 md:grid-cols-3 pt-24">
         {contactItems.map((item) => {
           const Icon = item.icon;
 

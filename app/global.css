@@ -29,3 +29,25 @@
 body {
   @apply bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden;
 }
+
+.admin-input {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid #e2e6ef;
+  background: #f8fafc;
+  padding: 16px 18px;
+  color: #17255f;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+}
+
+.admin-input::placeholder {
+  color: #98a2b3;
+}
+
+.admin-input:focus {
+  border-color: #ff7a00;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.12);
+}
