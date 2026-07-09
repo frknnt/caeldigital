@@ -39,11 +39,11 @@ export default function FeaturedWorks() {
               key={index}
               className="group flex cursor-pointer flex-col rounded-[2.5rem] border border-gray-100 bg-white p-4 shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] md:p-6"
             >
-              <div className="relative mb-8 aspect-[16/10] w-full overflow-hidden rounded-[2rem] md:aspect-[4/3]">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[22px] bg-white">
                 <img
                   src={work.image}
                   alt={work.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =
                       'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23f3f4f6"/></svg>';

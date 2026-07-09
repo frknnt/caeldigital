@@ -1,7 +1,6 @@
 // app/about/page.tsx
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import BlogHero from "@/components/blog/blog-hero";
 import Blog from "@/components/blog/blog-blogs";
 
 
@@ -11,8 +10,6 @@ export default function BlogPage() {
       <Header />
       
       <main>
-        {/* 1. Sayfanın en üstündeki devasa başlık alanı */}
-        <BlogHero />
         <Blog />
         
 

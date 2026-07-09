@@ -2,32 +2,36 @@ import Image from "next/image";
 
 const works = [
   {
-    title: "Luna Beauty Studio",
-    image: "/works/luna-beauty.jpg",
-    description: "Marka kimliğiyle uyumlu web sitesi, sosyal medya içerik düzeni ve reklam dönüşüm kurgusu hazırlandı.",
-    deliverables: "Web site, Meta Ads, içerik planı",
-    industry: "Güzellik",
+    title: "Mito Gusto",
+    image: "/mitogustologo.png",
+    description:
+      "Kullanıcı dostu arayüz ve güçlü görsel dil ile Mitogusto’nun dijital marka deneyimi güçlendirildi.",
+    deliverables: "Web Tasarım",
+    industry: "Pasta ve Tatlı Ürünleri",
   },
   {
-    title: "Nova E-Ticaret",
-    image: "/works/nova-commerce.jpg",
-    description: "Satış odaklı landing page, ürün kampanya yapısı ve reklam yönetimiyle dönüşüm performansı artırıldı.",
-    deliverables: "Landing page, reklam yönetimi",
-    industry: "E-ticaret",
+    title: "Mito Gusto",
+    image: "/mitogustologo.png",
+    description:
+      "Markanın ürün çeşitliliğini düzenli, anlaşılır ve estetik bir yapıyla sunan katalog tasarımı hazırlandı.",
+    deliverables: "Katalog Tasarımı",
+    industry: "Pasta ve Tatlı Ürünleri",
   },
   {
-    title: "Ares Clinic",
-    image: "/works/ares-clinic.jpg",
-    description: "Kurumsal algıyı güçlendiren modern site tasarımı ve randevu odaklı reklam akışı oluşturuldu.",
-    deliverables: "Kurumsal site, sosyal medya",
-    industry: "Sağlık",
+    title: "Asdem Endüstriyel Mutfak Cihazları",
+    image: "/asdemlogo.jpeg",
+    description:
+      "Modern, mobil uyumlu ve kurumsal bir web sitesiyle Asdem’in dijitalde daha profesyonel görünmesi sağlandı.",
+    deliverables: "Web Tasarım",
+    industry: "Endüstriyel Mutfak Cihazları",
   },
   {
-    title: "Mira Cafe",
-    image: "/works/mira-cafe.jpg",
-    description: "Yerel görünürlüğü artıran sosyal medya yönetimi, kampanya tasarımları ve reklam setleri hazırlandı.",
-    deliverables: "Sosyal medya, Meta Ads",
-    industry: "Yeme içme",
+    title: "Asdem Endüstriyel Mutfak Cihazları",
+    image: "/asdemlogo.jpeg",
+    description:
+      "Endüstriyel mutfak ürünlerini kategorik, sade ve profesyonel bir düzenle öne çıkaran katalog tasarımı oluşturuldu.",
+    deliverables: "Katalog Tasarımı",
+    industry: "Endüstriyel Mutfak Cihazları",
   },
 ];
 
@@ -36,9 +40,11 @@ export default function WorksDetails() {
     <main className="min-h-screen px-4 py-20 text-[#0b0b0f] sm:px-6 lg:px-10">
       <section className="mx-auto max-w-7xl">
         <div className="mb-10 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-md border border-white/80 bg-white px-4 py-2 text-sm font-semibold text-sky-500 shadow-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
-            İşlerimiz
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gray-100 bg-white px-4 py-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
+            <div className="h-1.5 w-1.5 rounded-full bg-[#093efe]"></div>
+            <span className="text-[0.85rem] font-bold tracking-wide text-[#093efe]">
+              İşlerimiz
+            </span>
           </div>
         </div>
 
@@ -55,23 +61,21 @@ export default function WorksDetails() {
         <div className="grid gap-6 lg:grid-cols-2">
           {works.map((work, index) => (
             <article
-              key={work.title}
-              className="rounded-[28px] border border-white bg-[#f7f7f8] p-3 shadow-[0_10px_24px_rgba(0,0,0,0.13)]"
+              key={`${work.title}-${work.deliverables}`}
+              className="group rounded-[28px] border border-white bg-white p-3 shadow-[0_10px_24px_rgba(0,0,0,0.13)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.16)]"
             >
-              <div className="relative aspect-[16/10] overflow-hidden rounded-[22px] bg-zinc-200">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[22px] bg-white">
                 <Image
                   src={work.image}
                   alt={work.title}
                   fill
-                  className="object-cover"
+                  className="bg-white object-contain transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority={index < 2}
                 />
               </div>
 
               <div className="px-4 pb-5 pt-5 sm:px-6">
-                
-
                 <div className="border-t border-zinc-300 pt-6">
                   <div className="grid gap-6 xl:grid-cols-[1.15fr_1fr_0.8fr_0.55fr]">
                     <h2 className="text-3xl font-semibold leading-tight tracking-normal sm:text-4xl xl:text-3xl">

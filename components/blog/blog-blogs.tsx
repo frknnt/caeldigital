@@ -44,7 +44,7 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <main className="min-h-screen px-5 py-24 text-[#08080c] sm:px-8 lg:px-12">
-      <section className="mx-auto max-w-[1500px]">
+      <section className="mx-auto max-w-[1500px] pt-24">
         <div className="grid gap-x-10 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
           {blogPosts.map((post) => (
             <article key={post.href} className="group">

@@ -24,24 +24,6 @@ export default function Hero() {
 
           <span className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
             <span>Tüm Dijital Çözümler</span>
-
-            <div className="relative mt-2 ml-2 inline-flex h-12 w-28 items-center justify-center rounded-full bg-gradient-to-r from-blue-700 to-blue-800 shadow-[0_0_40px_rgba(9,62,254,0.35)] md:mt-0 md:ml-4 md:h-[4.5rem] md:w-40">
-              <img
-                src="/meta.webp"
-                alt="Meta"
-                className="absolute -top-4 -left-4 h-10 w-10 -rotate-12 drop-shadow-xl transition-transform duration-300 hover:rotate-0 md:-top-6 md:-left-6 md:h-14 md:w-14"
-              />
-              <img
-                src="/instagram.webp"
-                alt="Instagram"
-                className="absolute -bottom-4 left-6 h-10 w-10 rotate-12 drop-shadow-xl transition-transform duration-300 hover:rotate-0 md:-bottom-6 md:left-8 md:h-14 md:w-14"
-              />
-              <img
-                src="/facebook.webp"
-                alt="Facebook"
-                className="absolute top-1 -right-4 h-10 w-10 rotate-[20deg] drop-shadow-xl transition-transform duration-300 hover:rotate-0 md:top-2 md:-right-6 md:h-14 md:w-14"
-              />
-            </div>
           </span>
         </h1>
 
