@@ -1,4 +1,5 @@
-          <div className="w-full lg:w-7/12">
+          
+          import { Mail, Headset, Paperclip } from "lucide-react";<div className="w-full lg:w-7/12">
             <div className="bg-white/95 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-white">
               
               <h3 className="text-3xl font-bold text-gray-900 mb-10 tracking-tight">
