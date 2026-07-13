@@ -55,7 +55,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-4 z-50 flex w-full justify-center px-4 transition-all duration-300">
+    <header className="fixed left-0 right-0 top-4 z-50 flex w-full justify-center px-4 transition-all duration-300 z-[9999]">
       <div
         className={`relative flex w-full max-w-[1100px] items-center justify-between rounded-full px-3 py-2.5 transition-all duration-300 ${
           isScrolled
