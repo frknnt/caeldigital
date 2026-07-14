@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://caeldigital.com"),
@@ -59,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

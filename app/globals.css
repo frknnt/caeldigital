@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer components {
+  .tf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: #093efe;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+    transition: all 0.2s ease-in-out;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  .tf-btn:hover {
+    background-color: #002fd1;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .tf-btn-2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: 2px solid #093efe;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #093efe;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tf-btn-2:hover {
+    background-color: #eff6ff;
+  }
+
+  .text-gradient-1 {
+    background-image: linear-gradient(to right, #4b5563, #111827);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-2 {
+    background-image: linear-gradient(to right, #093efe, #00BFFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-3 {
+    background-image: linear-gradient(to right, #222d63, #093efe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .heading-sub {
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background-color: #eff6ff;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #093efe;
+  }
+
+  .heading-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #222d63;
+  }
+
+  @media (min-width: 768px) {
+    .heading-title {
+      font-size: 3rem;
+    }
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  overflow-x: hidden;
+  background-color: #f8fafc;
+  color: #1f2937;
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.admin-input {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid #e2e6ef;
+  background: #f8fafc;
+  padding: 16px 18px;
+  color: #17255f;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+}
+
+.admin-input::placeholder {
+  color: #98a2b3;
+}
+
+.admin-input:focus {
+  border-color: #093efe;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(9, 62, 254, 0.12);
+}
+
+::selection {
+  background: #093efe;
+  color: #ffffff;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
