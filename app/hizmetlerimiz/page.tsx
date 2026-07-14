@@ -4,6 +4,13 @@ import Footer from "@/components/layout/footer";
 import ServicesHero from "@/components/hizmetlerimiz/services-hero";
 import ServicesAccordion from "@/components/hizmetlerimiz/service-details";
 import ServicesContact from "@/components/hizmetlerimiz/services-contact";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hizmetlerimiz",
+  description:
+    "Web site kurulumu, sosyal medya yönetimi ve reklam yönetimi hizmetlerimizi inceleyin.",
+};
 
 export default function ServicesPage() {
   return (

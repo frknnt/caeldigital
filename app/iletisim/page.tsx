@@ -3,6 +3,13 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import ContactDetails from "@/components/iletisim/contact-details";
 import Contact from "@/components/iletisim/contact-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "İletişim",
+  description:
+    "Web site, sosyal medya ve reklam yönetimi ihtiyaçlarınız için Cael Digital ile iletişime geçin.",
+};
 
 export default function ContactPage() {
   return (

@@ -3,6 +3,13 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import WorksHero from "@/components/portfolyo/works-hero";
 import WorksDetails from "@/components/portfolyo/works-details";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolyo",
+  description:
+    "Cael Digital tarafından hazırlanan web tasarım, katalog ve dijital marka projelerini inceleyin.",
+};
 
 
 export default function WorksPage() {

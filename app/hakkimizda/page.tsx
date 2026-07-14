@@ -4,6 +4,13 @@ import Footer from "@/components/layout/footer";
 import AboutHero from "@/components/hakkimizda/about-hero";
 import Mission from "@/components/hakkimizda/about-aboutus"; 
 import Values from "@/components/hakkimizda/about-values";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hakkımızda",
+  description:
+    "Cael Digital'in dijital pazarlama, web tasarım ve marka büyütme yaklaşımını yakından tanıyın.",
+};
 
 export default function AboutPage() {
   return (
