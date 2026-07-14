@@ -51,3 +51,15 @@ export const metadata: Metadata = {
     apple: "/caelfavicon.png",
   },
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="tr">
+      <body>{children}</body>
+    </html>
+  );
+}
