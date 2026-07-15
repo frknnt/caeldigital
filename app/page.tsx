@@ -5,6 +5,16 @@ import Hakkimizda from "../components/ana-sayfa/hakkimizda";
 import Hizmetlerimiz from "../components/ana-sayfa/hizmetlerimiz";
 import Portfolio from "../components/ana-sayfa/portfolyo";
 import Iletisim from "../components/ana-sayfa/iletisim";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cael Digital | Web Tasarım, Sosyal Medya ve Reklam Yönetimi",
+  description:
+    "Cael Digital; web site kurulumu, sosyal medya yönetimi ve reklam yönetimi hizmetleriyle markanızı dijitalde büyüten dijital ajans.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
