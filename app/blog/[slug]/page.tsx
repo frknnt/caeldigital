@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
@@ -21,6 +22,11 @@ type BlogPost = {
   status: "draft" | "published";
   published_at: string | null;
   created_at: string;
+  meta_title: string | null;
+  meta_description: string | null;
+  seo_keywords: string | null;
+  focus_keyword: string | null;
+  image_alt: string | null;
 };
 
 type ContentBlock =
@@ -33,6 +39,70 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const { data: blog } = await supabase
+    .from("blogs")
+    .select(
+      "title, slug, cover_image_url, meta_title, meta_description, seo_keywords, image_alt"
+    )
+    .eq("slug", slug)
+    .eq("status", "published")
+    .single();
+
+  if (!blog) {
+    return {
+      title: "Blog Yazısı Bulunamadı | Cael Digital",
+      description: "Aradığınız blog yazısı bulunamadı.",
+    };
+  }
+
+  const title = blog.meta_title || `${blog.title} | Cael Digital`;
+  const description =
+    blog.meta_description ||
+    "Cael Digital blogunda web tasarım, sosyal medya yönetimi ve reklam yönetimi hakkında içerikler.";
+
+  return {
+    title,
+    description,
+    keywords: blog.seo_keywords
+      ? blog.seo_keywords.split(",").map((keyword: string) => keyword.trim())
+      : undefined,
+    alternates: {
+      canonical: `/blog/${blog.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `https://caeldigital.com/blog/${blog.slug}`,
+      siteName: "Cael Digital",
+      locale: "tr_TR",
+      images: blog.cover_image_url
+        ? [
+            {
+              url: blog.cover_image_url,
+              width: 1200,
+              height: 630,
+              alt: blog.image_alt || blog.title,
+            },
+          ]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: blog.cover_image_url ? [blog.cover_image_url] : undefined,
+    },
+  };
+}
 
 function formatDate(date: string | null) {
   if (!date) return "-";
@@ -139,7 +209,7 @@ export default async function BlogDetailPage({
   const { data: relatedData } = await supabase
     .from("blogs")
     .select(
-      "id, title, slug, cover_image_url, category, content, author, status, published_at, created_at"
+      "id, title, slug, cover_image_url, category, content, author, status, published_at, created_at, meta_title, meta_description, seo_keywords, focus_keyword, image_alt"
     )
     .eq("status", "published")
     .neq("id", currentBlog.id)
@@ -302,7 +372,7 @@ export default async function BlogDetailPage({
                     <div className="aspect-[1.55/1] overflow-hidden rounded-[16px] bg-zinc-200">
                       <img
                         src={post.cover_image_url || "/blog/website-design-1.jpg"}
-                        alt={post.title}
+                        alt={post.image_alt || post.title}
                         className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
                       />
                     </div>

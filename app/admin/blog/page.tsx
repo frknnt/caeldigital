@@ -19,6 +19,11 @@ type Blog = {
   published_at: string | null;
   created_at: string;
   updated_at: string;
+  meta_title: string | null;
+  meta_description: string | null;
+  seo_keywords: string | null;
+  focus_keyword: string | null;
+  image_alt: string | null;
 };
 
 const categories = [
@@ -31,10 +36,16 @@ const categories = [
 
 const emptyForm = {
   title: "",
+  slug: "",
   cover_image_url: "",
   category: categories[0],
   content: "",
   status: "draft" as BlogStatus,
+  meta_title: "",
+  meta_description: "",
+  seo_keywords: "",
+  focus_keyword: "",
+  image_alt: "",
 };
 
 const supabase = createClient(
@@ -45,6 +56,8 @@ const supabase = createClient(
 function createSlug(text: string) {
   return text
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .trim()
     .replace(/ğ/g, "g")
     .replace(/ü/g, "u")
@@ -54,7 +67,8 @@ function createSlug(text: string) {
     .replace(/ç/g, "c")
     .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 function formatDate(date: string | null) {
@@ -231,10 +245,16 @@ export default function AdminBlogPage() {
     setEditingBlog(blog);
     setForm({
       title: blog.title,
+      slug: blog.slug,
       cover_image_url: blog.cover_image_url || "",
       category: blog.category,
       content: blog.content,
       status: blog.status,
+      meta_title: blog.meta_title || "",
+      meta_description: blog.meta_description || "",
+      seo_keywords: blog.seo_keywords || "",
+      focus_keyword: blog.focus_keyword || "",
+      image_alt: blog.image_alt || "",
     });
     setCoverImageFile(null);
     setCoverImagePreview("");
@@ -274,16 +294,26 @@ export default function AdminBlogPage() {
         ? editingBlog?.published_at || new Date().toISOString()
         : null;
 
+    const seoPayload = {
+      meta_title: form.meta_title.trim() || null,
+      meta_description: form.meta_description.trim() || null,
+      seo_keywords: form.seo_keywords.trim() || null,
+      focus_keyword: form.focus_keyword.trim() || null,
+      image_alt: form.image_alt.trim() || null,
+    };
+
     if (editingBlog) {
       const { data, error } = await supabase
         .from("blogs")
         .update({
           title: form.title.trim(),
+          slug: createSlug(form.slug || form.title) || editingBlog.slug,
           cover_image_url: coverImageUrl,
           category: form.category,
           content: form.content.trim(),
           status: form.status,
           published_at: publishedAt,
+          ...seoPayload,
         })
         .eq("id", editingBlog.id)
         .select()
@@ -304,7 +334,7 @@ export default function AdminBlogPage() {
       return;
     }
 
-    const slug = await createUniqueSlug(form.title);
+    const slug = await createUniqueSlug(form.slug || form.title);
 
     const { data, error } = await supabase
       .from("blogs")
@@ -317,6 +347,7 @@ export default function AdminBlogPage() {
         author: "Cael Digital",
         status: form.status,
         published_at: publishedAt,
+        ...seoPayload,
       })
       .select()
       .single();
@@ -560,6 +591,23 @@ export default function AdminBlogPage() {
 
               <label className="flex flex-col gap-2">
                 <span className="text-[14px] font-black uppercase tracking-[0.18em]">
+                  URL Slug
+                </span>
+                <input
+                  value={form.slug}
+                  onChange={(e) =>
+                    setForm({ ...form, slug: createSlug(e.target.value) })
+                  }
+                  placeholder="profesyonel-web-tasarim"
+                  className="h-[54px] rounded-[16px] border border-[#dfe3eb] px-5 text-[16px] outline-none focus:border-[#093efe]"
+                />
+                <span className="text-xs font-bold text-zinc-400">
+                  Boş bırakırsan başlıktan otomatik oluşturulur.
+                </span>
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[14px] font-black uppercase tracking-[0.18em]">
                   Kapak Görseli
                 </span>
 
@@ -642,6 +690,76 @@ export default function AdminBlogPage() {
                   <option value="draft">Taslak</option>
                   <option value="published">Yayında</option>
                 </select>
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[14px] font-black uppercase tracking-[0.18em]">
+                  Meta Başlık
+                </span>
+                <input
+                  value={form.meta_title}
+                  onChange={(e) =>
+                    setForm({ ...form, meta_title: e.target.value })
+                  }
+                  placeholder="Google'da görünecek başlık"
+                  className="h-[54px] rounded-[16px] border border-[#dfe3eb] px-5 text-[16px] outline-none focus:border-[#093efe]"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[14px] font-black uppercase tracking-[0.18em]">
+                  Odak Anahtar Kelime
+                </span>
+                <input
+                  value={form.focus_keyword}
+                  onChange={(e) =>
+                    setForm({ ...form, focus_keyword: e.target.value })
+                  }
+                  placeholder="web tasarım"
+                  className="h-[54px] rounded-[16px] border border-[#dfe3eb] px-5 text-[16px] outline-none focus:border-[#093efe]"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2 md:col-span-2">
+                <span className="text-[14px] font-black uppercase tracking-[0.18em]">
+                  Meta Açıklama
+                </span>
+                <textarea
+                  value={form.meta_description}
+                  onChange={(e) =>
+                    setForm({ ...form, meta_description: e.target.value })
+                  }
+                  placeholder="Google sonuçlarında görünecek kısa açıklama"
+                  className="min-h-[96px] resize-none rounded-[18px] border border-[#dfe3eb] px-5 py-4 text-[16px] leading-7 outline-none focus:border-[#093efe]"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[14px] font-black uppercase tracking-[0.18em]">
+                  SEO Anahtar Kelimeler
+                </span>
+                <input
+                  value={form.seo_keywords}
+                  onChange={(e) =>
+                    setForm({ ...form, seo_keywords: e.target.value })
+                  }
+                  placeholder="web tasarım, dijital ajans, seo"
+                  className="h-[54px] rounded-[16px] border border-[#dfe3eb] px-5 text-[16px] outline-none focus:border-[#093efe]"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[14px] font-black uppercase tracking-[0.18em]">
+                  Görsel Alt Metni
+                </span>
+                <input
+                  value={form.image_alt}
+                  onChange={(e) =>
+                    setForm({ ...form, image_alt: e.target.value })
+                  }
+                  placeholder="Blog kapak görseli açıklaması"
+                  className="h-[54px] rounded-[16px] border border-[#dfe3eb] px-5 text-[16px] outline-none focus:border-[#093efe]"
+                />
               </label>
 
               <label className="flex flex-col gap-2 md:col-span-2">

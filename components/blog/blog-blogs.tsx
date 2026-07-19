@@ -11,6 +11,7 @@ type BlogPost = {
   title: string;
   slug: string;
   cover_image_url: string | null;
+  image_alt: string | null;
   status: "draft" | "published";
   published_at: string | null;
   created_at: string;
@@ -30,7 +31,7 @@ export default function BlogBlogs() {
       const { data, error } = await supabase
         .from("blogs")
         .select(
-          "id, category, title, slug, cover_image_url, status, published_at, created_at"
+          "id, category, title, slug, cover_image_url, image_alt, status, published_at, created_at"
         )
         .eq("status", "published")
         .order("published_at", { ascending: false, nullsFirst: false })
@@ -68,7 +69,7 @@ export default function BlogBlogs() {
                   <div className="relative aspect-[1.39/1] overflow-hidden rounded-[10px] bg-zinc-300">
                     <img
                       src={post.cover_image_url || "/blog/website-design-1.jpg"}
-                      alt={post.title}
+                      alt={post.image_alt || post.title}
                       className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0"
                     />
                   </div>
