@@ -551,8 +551,8 @@ export default function AdminBlogPage() {
       </section>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/35 px-5 backdrop-blur-[7px]">
-          <div className="w-full max-w-[1020px] rounded-[32px] bg-white p-8 shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
+        <div className="fixed inset-0 z-[10000] flex items-start justify-center overflow-y-auto bg-black/35 px-4 py-6 backdrop-blur-[7px] lg:items-center">
+          <div className="max-h-[calc(100vh-48px)] w-full max-w-[1020px] overflow-y-auto rounded-[32px] bg-white p-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:p-8">
             <div className="mb-7 flex items-start justify-between gap-6">
               <div>
                 <h3 className="text-[34px] font-black tracking-[-0.03em]">

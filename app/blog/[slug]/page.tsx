@@ -199,13 +199,6 @@ export default async function BlogDetailPage({
   const blocks = parseContent(currentBlog.content);
   const readingTime = getReadingTime(currentBlog.content);
 
-  const intro =
-    currentBlog.content
-      .split("\n")
-      .map((line) => line.trim())
-      .find((line) => line && !line.startsWith("#") && !line.startsWith("-")) ||
-    "Dijital süreçlerde doğru kararlar almak, markanın görünürlüğünü ve performansını doğrudan etkiler.";
-
   const { data: relatedData } = await supabase
     .from("blogs")
     .select(
@@ -262,12 +255,6 @@ export default async function BlogDetailPage({
                 <Clock3 size={16} className="text-[#093efe]" />
                 {readingTime} dk okuma
               </span>
-            </div>
-
-            <div className="mt-8 rounded-[24px] border border-zinc-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.07)]">
-              <p className="text-[16px] font-medium leading-8 text-zinc-600">
-                {intro}
-              </p>
             </div>
           </div>
         </section>
