@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { Mail, Headset } from "lucide-react";
+import { trackMetaEvent } from "@/components/shared/meta-pixel";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -60,6 +61,12 @@ export default function Contact() {
     }
 
     setSuccessMessage("Formunuz başarıyla gönderildi. En kısa sürede dönüş yapacağız.");
+    trackMetaEvent("Lead", {
+      content_name: "Hizmetler Sayfası Formu",
+      content_category: form.subject.trim() || "Genel İletişim",
+      form_location: "services_page",
+    });
+
     setForm(initialForm);
   };
 

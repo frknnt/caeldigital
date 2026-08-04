@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import MetaPixel from "@/components/shared/meta-pixel";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -64,7 +65,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <MetaPixel />
+        {children}
+      </body>
     </html>
   );
 }
