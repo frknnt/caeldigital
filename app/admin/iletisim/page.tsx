@@ -8,7 +8,7 @@ import { AdminSidebar } from "@/app/admin/components/AdminSidebar";
 type ContactForm = {
   id: string;
   full_name: string;
-  email: string;
+  email: string | null;
   phone: string | null;
   subject: string | null;
   message: string;
@@ -72,7 +72,7 @@ export default function AdminContactFormsPage() {
 
       const searchMatch =
         item.full_name.toLowerCase().includes(searchText) ||
-        item.email.toLowerCase().includes(searchText) ||
+        (item.email ?? "").toLowerCase().includes(searchText) ||
         (item.subject || "").toLowerCase().includes(searchText);
 
       const dateMatch =
@@ -355,7 +355,9 @@ export default function AdminContactFormsPage() {
             <div className="space-y-4 text-[18px]">
               <p>
                 <strong>E-posta:</strong>{" "}
-                <span className="text-slate-700">{selectedMessage.email}</span>
+                <span className="text-slate-700">
+                  {selectedMessage.email || "E-posta belirtilmedi"}
+                </span>
               </p>
 
               <p>

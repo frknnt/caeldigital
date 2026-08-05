@@ -46,7 +46,6 @@ export default function Contact() {
 
     const { error } = await supabase.from("contact_forms").insert({
       full_name: form.full_name.trim(),
-      email: "no-email@caeldigital.com",
       phone: form.phone.trim(),
       subject: form.subject.trim() || null,
       message: form.message.trim(),
